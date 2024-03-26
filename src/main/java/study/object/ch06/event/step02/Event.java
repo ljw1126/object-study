@@ -1,4 +1,4 @@
-package study.object.ch06.event.step01;
+package study.object.ch06.event.step02;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -18,7 +18,6 @@ public class Event {
         if (from.getDayOfWeek() != schedule.getDayOfWeek()
                 || !from.toLocalTime().equals(schedule.getFrom())
                 || !duration.equals(schedule.getDuration())) {
-            reschedule(schedule); // command와 query가 공존하고 있어 버그 유발
             return false;
         }
 
