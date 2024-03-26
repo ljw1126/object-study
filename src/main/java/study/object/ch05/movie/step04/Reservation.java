@@ -1,6 +1,6 @@
 package study.object.ch05.movie.step04;
 
-import study.object.ch04.money.Money;
+import study.object.ch05.money.Money;
 
 public class Reservation {
     private Customer customer;
