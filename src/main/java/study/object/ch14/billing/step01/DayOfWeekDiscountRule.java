@@ -25,7 +25,7 @@ public class DayOfWeekDiscountRule {
 
     public Money calculate(DateTimeInterval interval) {
         if (dayOfWeeks.contains(interval.getFrom().getDayOfWeek())) {
-            return amount.times(interval.duration().getSeconds() / duration.getSeconds());
+            return amount.times((double) interval.duration().getSeconds() / duration.getSeconds());
         }
 
         return Money.ZERO;

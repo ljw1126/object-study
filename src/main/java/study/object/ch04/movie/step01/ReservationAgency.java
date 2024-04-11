@@ -35,6 +35,7 @@ public class ReservationAgency {
                     break;
                 case PERCENT_DISCOUNT:
                     discountAmount = movie.getFee().times(movie.getDiscountPercent());
+                    break;
                 case NONE_DISCOUNT:
                     break;
             }

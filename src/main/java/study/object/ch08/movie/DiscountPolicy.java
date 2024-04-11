@@ -10,7 +10,7 @@ public abstract class DiscountPolicy {
     private List<DiscountCondition> discountConditions = new ArrayList<>();
 
     // 생성자에서 주입하는 방식
-    public DiscountPolicy(DiscountCondition... discountConditions) {
+    protected DiscountPolicy(DiscountCondition... discountConditions) {
         this.discountConditions.addAll(Arrays.asList(discountConditions));
     }
 

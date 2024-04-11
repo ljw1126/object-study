@@ -34,8 +34,7 @@ public class EventApplication {
                 Duration.ofMinutes(30)
         );
 
-        assert meeting.isSatisfied(schedule) == true;
-        assert meeting2.isSatisfied(schedule) == false; // 명령과 쿼리를 동시에 수행(문제), 부수 효과로 인해 실행 결과를 예측하기 어려워짐, 곧 버그 양산 가능
-        assert meeting2.isSatisfied(schedule) == true;
+        assert meeting.isSatisfied(schedule);
+        assert !meeting2.isSatisfied(schedule); // 명령과 쿼리를 동시에 수행(문제), 부수 효과로 인해 실행 결과를 예측하기 어려워짐, 곧 버그 양산 가능
     }
 }

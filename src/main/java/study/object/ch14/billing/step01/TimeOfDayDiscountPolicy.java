@@ -32,7 +32,7 @@ public class TimeOfDayDiscountPolicy extends BasicRatePolicy {
                 // 비용 * (총 통화시간 / 단위 시간)
                 result.plus(
                         amounts.get(loop).times(
-                                Duration.between(from(interval, starts.get(loop)), to(interval, ends.get(loop))).getSeconds()
+                                (double) Duration.between(from(interval, starts.get(loop)), to(interval, ends.get(loop))).getSeconds()
                                         / durations.get(loop).getSeconds()
                         )
                 );

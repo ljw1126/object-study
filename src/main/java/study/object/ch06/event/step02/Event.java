@@ -14,6 +14,10 @@ public class Event {
         this.duration = duration;
     }
 
+    public String getSubject() {
+        return subject;
+    }
+
     public boolean isSatisfied(RecurringSchedule schedule) {
         if (from.getDayOfWeek() != schedule.getDayOfWeek()
                 || !from.toLocalTime().equals(schedule.getFrom())
@@ -31,6 +35,6 @@ public class Event {
     }
 
     private long daysDistance(RecurringSchedule schedule) {
-        return schedule.getDayOfWeek().getValue() - from.getDayOfWeek().getValue();
+        return (long) schedule.getDayOfWeek().getValue() - from.getDayOfWeek().getValue();
     }
 }

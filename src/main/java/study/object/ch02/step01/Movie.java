@@ -24,4 +24,16 @@ public class Movie {
     public Money calculateMovieFee(Screening screening) {
         return fee.minus(discountPolicy.calculateDiscountAmount(screening));
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Duration getRunningTime() {
+        return runningTime;
+    }
+
+    public DiscountPolicy getDiscountPolicy() {
+        return discountPolicy;
+    }
 }

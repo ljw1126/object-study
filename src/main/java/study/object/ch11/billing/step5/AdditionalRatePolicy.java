@@ -5,7 +5,7 @@ import study.object.ch11.money.Money;
 public abstract class AdditionalRatePolicy implements RatePolicy {
     private RatePolicy policy;
 
-    public AdditionalRatePolicy(RatePolicy policy) {
+    protected AdditionalRatePolicy(RatePolicy policy) {
         this.policy = policy;
     }
 

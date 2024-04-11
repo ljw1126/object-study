@@ -9,19 +9,19 @@ import java.util.List;
 public abstract class DiscountPolicy {
     private List<DiscountCondition> conditions = new ArrayList<>();
 
-    public DiscountPolicy(DiscountCondition... conditions) {
+    protected DiscountPolicy(DiscountCondition... conditions) {
         this.conditions.addAll(Arrays.asList(conditions));
     }
 
     public Money calculateDiscountAmount(Screening screening) {
-        for(DiscountCondition each : this.conditions) {
-           if(each.isSatisfiedBy(screening)) {
-               return getDiscountAmount(screening);
-           }
+        for (DiscountCondition each : this.conditions) {
+            if (each.isSatisfiedBy(screening)) {
+                return getDiscountAmount(screening);
+            }
         }
 
         return Money.ZERO;
     }
 
-    abstract protected Money getDiscountAmount(Screening screening);
+    protected abstract Money getDiscountAmount(Screening screening);
 }

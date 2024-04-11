@@ -2,6 +2,7 @@ package study.object.ch10.instrumented;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class InstrumentedHashSet<E> extends HashSet<E> {
 
@@ -15,13 +16,7 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
 
     /*
         문제) super.addAll(..) 호출시 내부에서 add(..) 호출해서 중복 카운팅
-        @Override
-        public boolean addAll(Collection<? extends E> c) {
-            addCount += c.size();
-            return super.addAll(c);
-        }
     */
-
     @Override
     public boolean addAll(Collection<? extends E> c) {
         boolean modified = false;
@@ -33,5 +28,23 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
         }
 
         return modified;
+    }
+
+    public int getAddCount() {
+        return addCount;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        if (!super.equals(other)) return false;
+        InstrumentedHashSet<?> that = (InstrumentedHashSet<?>) other;
+        return addCount == that.addCount;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), addCount);
     }
 }

@@ -20,6 +20,8 @@ public class EventApplication {
                 Duration.ofMinutes(30)
         );
 
+        System.out.println(meeting);
+
         // 매주 수요일 10시 30분 ~ 30분 동안 열리는 회의
         RecurringSchedule schedule = new RecurringSchedule(
                 "회의",
@@ -38,6 +40,6 @@ public class EventApplication {
             meeting2.reschedule(schedule);
         }
 
-        assert meeting2.isSatisfied(schedule) == true;
+        assert meeting2.isSatisfied(schedule);
     }
 }
